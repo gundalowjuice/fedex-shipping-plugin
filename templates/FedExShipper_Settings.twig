@@ -1,0 +1,256 @@
+{#
+/**
+ * test plugin for Craft CMS
+ *
+ * test Settings.twig
+ *
+ * @author    kevin douglass
+ * @copyright Copyright (c) 2016 
+ * @link      #
+ * @package   FedExShipper
+ * @since     1
+ */
+#}
+
+
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource "fedexshipper/css/FedExShipper_Style.css" %}
+{# {% includeJsResource "fedexshipper/js/FedExShipper_Script.js" %} #}
+
+
+<h2>Client Information</h2>
+
+{{ forms.textField({
+    label: 'Name*',
+    instructions: '',
+    id: 'shipperName',
+    name: 'shipperName',
+    value: settings['shipperName']})
+}}
+
+{{ forms.textField({
+    label: 'Company*',
+    instructions: '',
+    id: 'shipperCompany',
+    name: 'shipperCompany',
+    value: settings['shipperCompany']})
+}}
+
+{{ forms.textField({
+    label: 'Shipper Address 1*',
+    instructions: '',
+    id: 'shipperAddress1',
+    name: 'shipperAddress1',
+    value: settings['shipperAddress1']})
+}}
+
+{{ forms.textField({
+    label: 'Shipper Address 2',
+    instructions: '',
+    id: 'shipperAddress2',
+    name: 'shipperAddress2',
+    value: settings['shipperAddress2']})
+}}
+
+{{ forms.textField({
+    label: 'Shipper City*',
+    instructions: '',
+    id: 'shipperCity',
+    name: 'shipperCity',
+    value: settings['shipperCity']})
+}}
+
+<div class="heading">
+    <label id="settings-shipperState-label" for="settings-shipperState">Shipper State*</label>
+</div>
+{{ forms.selectField({
+    label: 'shipperState',
+    id: 'shipperState',
+    name: 'shipperState',
+    options: [
+        { 'label': 'AL', 'value': 'AL' },
+        { 'label': 'AK', 'value': 'AK' },
+        { 'label': 'AZ', 'value': 'AZ' },
+        { 'label': 'AR', 'value': 'AR' },
+        { 'label': 'CA', 'value': 'CA' },
+        { 'label': 'CO', 'value': 'CO' },
+        { 'label': 'CT', 'value': 'CT' },
+        { 'label': 'DE', 'value': 'DE' },
+        { 'label': 'DC', 'value': 'DC' },
+        { 'label': 'FL', 'value': 'FL' },
+        { 'label': 'GA', 'value': 'GA' },
+        { 'label': 'HI', 'value': 'HI' },
+        { 'label': 'ID', 'value': 'ID' },
+        { 'label': 'IL', 'value': 'IL' },
+        { 'label': 'IN', 'value': 'IN' },
+        { 'label': 'IA', 'value': 'IA' },
+        { 'label': 'KS', 'value': 'KS' },
+        { 'label': 'KY', 'value': 'KY' },
+        { 'label': 'LA', 'value': 'LA' },
+        { 'label': 'ME', 'value': 'ME' },
+        { 'label': 'MD', 'value': 'MD' },
+        { 'label': 'MA', 'value': 'MA' },
+        { 'label': 'MI', 'value': 'MI' },
+        { 'label': 'MN', 'value': 'MN' },
+        { 'label': 'MS', 'value': 'MS' },
+        { 'label': 'MO', 'value': 'MO' },
+        { 'label': 'MT', 'value': 'MT' },
+        { 'label': 'NE', 'value': 'NE' },
+        { 'label': 'NV', 'value': 'NV' },
+        { 'label': 'NH', 'value': 'NH' },
+        { 'label': 'NJ', 'value': 'NJ' },
+        { 'label': 'NM', 'value': 'NM' },
+        { 'label': 'NY', 'value': 'NY' },
+        { 'label': 'NC', 'value': 'NC' },
+        { 'label': 'ND', 'value': 'ND' },
+        { 'label': 'OH', 'value': 'OH' },
+        { 'label': 'OK', 'value': 'OK' },
+        { 'label': 'OR', 'value': 'OR' },
+        { 'label': 'PA', 'value': 'PA' },
+        { 'label': 'RI', 'value': 'RI' },
+        { 'label': 'SC', 'value': 'SC' },
+        { 'label': 'SD', 'value': 'SD' },
+        { 'label': 'TN', 'value': 'TN' },
+        { 'label': 'TX', 'value': 'TX' },
+        { 'label': 'UT', 'value': 'UT' },
+        { 'label': 'VT', 'value': 'VT' },
+        { 'label': 'VA', 'value': 'VA' },
+        { 'label': 'WA', 'value': 'WA' },
+        { 'label': 'WV', 'value': 'WV' },
+        { 'label': 'WI', 'value': 'WI' },
+        { 'label': 'WY', 'value': 'WY' },
+    ],
+    value: settings['shipperState']})
+}}
+
+{{ forms.textField({
+    label: 'Shipper ZIP*',
+    type: 'number',
+    instructions: '',
+    id: 'shipperZip',
+    name: 'shipperZip',
+    value: settings['shipperZip']})
+}}
+
+{{ forms.textField({
+    label: 'Shipper Phone*',
+    instructions: '',
+    id: 'shipperPhone',
+    name: 'shipperPhone',
+    value: settings['shipperPhone']})
+}}
+
+
+<br>
+<h2>FedEx API Keys / Options</h2>
+<div class="heading">
+    <label id="settings-shipperState-label" for="settings-shipperState">Shipping Methods*</label>
+</div>
+{{ forms.checkboxGroup({
+    name: 'shippingMedhods',
+    options: [
+        { 
+            'label': 'Priority Overnight', 
+            'value': 'Priority Overnight', 
+            'name': 'shippingMedhods1',
+        },
+        { 
+            'label': 'Standard Overnight', 
+            'value': 'Standard Overnight', 
+            'name': 'shippingMedhods2',
+        },
+        { 
+            'label': 'FedEx 2 Day AM', 
+            'value': 'FedEx 2 Day AM', 
+            'name': 'shippingMedhods3',
+        },
+        { 
+            'label': 'FedEx 2 Day', 
+            'value': 'FedEx 2 Day', 
+            'name': 'shippingMedhods4',
+        },
+        { 
+            'label': 'FedEx Express Saver', 
+            'value': 'FedEx Express Saver', 
+            'name': 'shippingMedhods5',
+        },
+        { 
+            'label': 'FedEx Ground', 
+            'value': 'FedEx Ground', 
+            'name': 'shippingMedhods6',
+        }
+    ],
+    values: settings['shippingMedhods']})
+}}
+
+{{ forms.textField({
+    label: 'Key*',
+    instructions: '',
+    id: 'apiKey',
+    name: 'apiKey',
+    value: settings['apiKey']})
+}}
+
+{{ forms.textField({
+    label: 'Password*',
+    instructions: '',
+    id: 'apiPswrd',
+    name: 'apiPswrd',
+    value: settings['apiPswrd']})
+}}
+
+{{ forms.textField({
+    label: 'Meter Number*',
+    instructions: '',
+    id: 'apiMeter',
+    name: 'apiMeter',
+    value: settings['apiMeter']})
+}}
+
+{{ forms.textField({
+    label: 'Account Number*',
+    instructions: '',
+    id: 'apiActNum',
+    name: 'apiActNum',
+    value: settings['apiActNum']})
+}}
+
+{{ forms.textField({
+    label: 'Integrator ID*',
+    instructions: '',
+    id: 'apiIntId',
+    name: 'apiIntId',
+    value: settings['apiIntId']})
+}}
+
+{{ forms.textField({
+    label: 'Client Product ID*',
+    instructions: '',
+    id: 'apiClientProdId',
+    name: 'apiClientProdId',
+    value: settings['apiClientProdId']})
+}}
+
+{{ forms.textField({
+    label: 'Client Product Version*',
+    instructions: '',
+    id: 'apiClientProdVer',
+    name: 'apiClientProdVer',
+    value: settings['apiClientProdVer']})
+}}
+
+<br>
+<h2>Rate Adjustments</h2>
+<p>Increase carrier rates to account for package and handeling</p>
+
+{{ forms.textField({
+    label: 'Residential Fee',
+    placeholder: '0.0',
+    instructions: '',
+    id: 'fedexresidentialfee',
+    name: 'fedexresidentialfee',
+    value: settings['fedexresidentialfee']})
+}}
+
+

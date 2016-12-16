@@ -1,0 +1,14 @@
+{
+	"name": "/fedexshipper",
+	"description": "Provides shipping methods",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Kevin Douglass",
+			"homepage": "http://kevindouglass.io"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
